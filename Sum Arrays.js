@@ -136,3 +136,35 @@
 function removeChar(str) {
     return str.slice(1, -1);
   }
+
+//EX13
+//Given an array of integers your solution should find the smallest integer.
+
+//For example:
+
+//Given [34, 15, 88, 2] your solution will return 2
+//Given [34, -345, -1, 100] your solution will return -345
+//You can assume, for the purpose of this kata, that the supplied array will not be empty.
+
+// class SmallestIntegerFinder {
+//   findSmallestInt(args) {
+//     args.sort((a, b) => {
+//       console.log(a - b);
+//     })
+//   }
+// }     DON'T WORK
+
+// class SmallestIntegerFinder {
+//   findSmallestInt(args) {
+//       return args.sort(function(a, b) {
+//         return a - b;
+//       })[0];
+//   }
+// }         HOW IT WORK
+
+
+//EX 14
+//Make a simple function called greet that returns the most-famous "hello world!".
+function hello (){
+ return ('hello world!')
+}
