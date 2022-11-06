@@ -178,3 +178,34 @@ const stringToNumber = function(str){
 return Number(str)
 }
 
+
+//EX 17      A Needle in the Haystack
+//Can you find the needle in the haystack?
+//Write a function findNeedle() that takes an array full of junk but containing one "needle"
+//After your function finds the needle it should return a message (as a string) that says:
+//"found the needle at position " plus the index it found the needle, so:
+function findNeedle(haystack) {
+haystack.forEach((item, id) => {
+  if(item == "needle"){
+    id++
+console.log('found the needle at position ' +id)
+  }
+});
+}
+findNeedle(['3', '123124234', undefined, 'needle', 'world', 'hay', 2, '3', true, false])
+
+
+//EX 18  Count of positives / sum of negatives
+//Given an array of integers.
+//Return an array, where the first element is the count of positives numbers and the second 
+//element is sum of negative numbers. 0 is neither positive nor negative.
+//If the input is an empty array or is null, return an empty array.
+function countPositivesSumNegatives(input) {
+  let munis = 0;
+  let arr = [];
+input.forEach(()=>{
+  if (item>0){
+arr.push(item)
+  } 
+})
+}
