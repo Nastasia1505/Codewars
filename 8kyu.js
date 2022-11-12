@@ -123,40 +123,16 @@ function removeChar(str) {
   return str.slice(1, -1);
 }
 
-//EX13
-//Given an array of integers your solution should find the smallest integer.
-
-//For example:
-
-//Given [34, 15, 88, 2] your solution will return 2
-//Given [34, -345, -1, 100] your solution will return -345
-//You can assume, for the purpose of this kata, that the supplied array will not be empty.
-
-// class SmallestIntegerFinder {
-//   findSmallestInt(args) {
-//     args.sort((a, b) => {
-//       console.log(a - b);
-//     })
-//   }
-// }     DON'T WORK
-
-// class SmallestIntegerFinder {
-//   findSmallestInt(args) {
-//       return args.sort(function(a, b) {
-//         return a - b;
-//       })[0];
-//   }
-// }         HOW IT WORK
 
 
-//EX 14++
+//EX 13++
 //Make a simple function called greet that returns the most-famous "hello world!".
 function greed() {
   return ('hello world!')
 }
 
 
-//EX 15++
+//EX 14++
 //Write a program that finds the summation of every number from 1 to num. 
 //The number will always be a positive integer greater than 0.
 //summation(8) -> 36
@@ -171,41 +147,77 @@ var summation = function (num) {
   return sum
 }
 
-//EX 16++
+//EX 15++
 //We need a function that can transform a string into a number. What ways of achieving this do you know?
 //Note: Don't worry, all inputs will be strings, and every string is a perfectly valid representation of an integral number.
 const stringToNumber = function(str){
-return Number(str)
+  return Number(str)
 }
 
 
-//EX 17      A Needle in the Haystack
+//EX 16++ Count of positives / sum of negatives
+//Given an array of integers.
+//Return an array, where the first element is the count of positives numbers and the second 
+//element is sum of negative numbers. 0 is neither positive nor negative.
+//If the input is an empty array or is null, return an empty array.
+
+function countPositivesSumNegatives(input) {
+  let positiveNums = 0;
+  let negativeNums = 0;
+  if (input === null || input.length === 0) {
+    return [];
+  } else {
+    input.forEach((num) => num > 0 ? positiveNums++ : negativeNums += num);
+  }
+  return [positiveNums , negativeNums];
+}
+
+
+//EX 17++      A Needle in the Haystack
 //Can you find the needle in the haystack?
 //Write a function findNeedle() that takes an array full of junk but containing one "needle"
 //After your function finds the needle it should return a message (as a string) that says:
 //"found the needle at position " plus the index it found the needle, so:
 function findNeedle(haystack) {
-haystack.forEach((item, id) => {
-  if(item == "needle"){
-    id++
-console.log('found the needle at position ' +id)
-  }
-});
+  let str = 'found the needle at position ';
+  let countID = 0;
+  haystack.forEach((item, id) => {
+    if(item == "needle"){
+     countID = countID+ id
+    }
+  });
+  return (str +countID)
 }
 findNeedle(['3', '123124234', undefined, 'needle', 'world', 'hay', 2, '3', true, false])
 
 
-//EX 18  Count of positives / sum of negatives
-//Given an array of integers.
-//Return an array, where the first element is the count of positives numbers and the second 
-//element is sum of negative numbers. 0 is neither positive nor negative.
-//If the input is an empty array or is null, return an empty array.
-function countPositivesSumNegatives(input) {
-  let munis = 0;
-  let arr = [];
-input.forEach(()=>{
-  if (item>0){
-arr.push(item)
-  } 
-})
+//EX 18 ++
+//Make a function that will return a greeting statement that uses an input; your program should return, "Hello, <name> how are you doing today?".
+function greet(name){
+  let str = `Hello, ${name} how are you doing today?`
+  return str
+  }
+
+// EX 19++
+//Implement a function which convert the given boolean value into its string representation.
+function booleanToString(b){
+  if (b === true){
+    return `true`
+    } else {
+      return `false`
+    }
+  }
+
+// EX 20 ++
+//Timmy & Sarah think they are in love, but around where they live, they will only know once they pick a flower each. 
+//If one of the flowers has an even number of petals and the other has an odd number of petals it means they are in love.
+//Write a function that will take the number of petals of each flower and return true if they are in love and false if they aren't.  
+function lovefunc(flower1, flower2){
+if (flower1 % 2 == 0 && flower2 % 2 !== 0){
+  return true
+} else if (flower1 % 2 !== 0 && flower2 % 2 == 0){
+  return true
+} else {
+  return false
+}
 }
