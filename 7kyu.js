@@ -88,21 +88,21 @@ function isIsogram(str) {
 
 //EX 6++
 //Write a function that returns both the minimum and maximum number of the given list/array.
-function minMax(arr){
-  let arr1 = arr.sort((a,b) => {return a-b})
+function minMax(arr) {
+  let arr1 = arr.sort((a, b) => { return a - b })
   let arr2 = []
-  arr2.push(arr1[0], arr1[arr1.length-1])
+  arr2.push(arr1[0], arr1[arr1.length - 1])
   return arr2
 }
 
 //secound
-function minMax(arr){
+function minMax(arr) {
   var max = arr[0], min = arr[0];
-  for(var i=0; i<arr.length; i++) {
-    if(arr[i]>max) max = arr[i];
-    if(arr[i]<min) min = arr[i];
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] > max) max = arr[i];
+    if (arr[i] < min) min = arr[i];
   }
-  return [min,max];
+  return [min, max];
 }
 
 
@@ -111,10 +111,10 @@ function minMax(arr){
 //No floats or non-positive integers will be passed.
 //For example, when an array is passed like [19, 5, 42, 2, 77], the output should be 7.
 //[10, 343445353, 3453445, 3453545353453] should return 3453455.
-function sumTwoSmallestNumbers(numbers) {  
- numbers.sort((a,b)=> {return a-b})
-let count = 0;
-return count = numbers[0]+numbers[1]
+function sumTwoSmallestNumbers(numbers) {
+  numbers.sort((a, b) => { return a - b })
+  let count = 0;
+  return count = numbers[0] + numbers[1]
 }
 
 
@@ -122,39 +122,105 @@ return count = numbers[0]+numbers[1]
 //Your team is writing a fancy new text editor and you've been tasked with implementing the line numbering.
 //Write a function which takes a list of strings and returns each line prepended by the correct number.
 //The numbering starts at 1. The format is n: string. Notice the colon and space in between.
-var number=function(array){
+var number = function (array) {
   let newArr = [];
   let number = 1;
   let a = ": "
-  array.forEach((item)=>{
-newArr.push(number+a+item)
+  array.forEach((item) => {
+    newArr.push(number + a + item)
 
-number++
-})
-return(newArr)
+    number++
+  })
+  return (newArr)
 }
 
+//EX 9++
+//The two oldest ages function/method needs to be completed. 
+//It should take an array of numbers as its argument and return the two highest numbers within the array. 
+//The returned value should be an array in the format [second oldest age,  oldest age].
+//The order of the numbers passed in could be any order. The array will always include at least 2 items. 
+//If there are two or more oldest age, then return both of them in array format.
+
+function twoOldestAges(ages) {
+  ages.sort((a, b) => { return a - b })
+  return ages.slice(-2)
+}
+
+
+//EX 10++
+//You will be given an array and a limit value. 
+//You must check that all values in the array are below or equal to the limit value. 
+//If they are, return true. Else, return false.
+//You can assume all values in the array are numbers.
+function smallEnough(a, limit) {
+  let f = 0
+  a.forEach((item) => {
+    if (item > limit) {
+      f++
+    }
+  })
+  if (f>0) {
+    return false
+  } else { return true }
+}
+smallEnough([78, 117, 110, 99, 104, 117, 107, 115], 100)
+
+//secound
+smallEnough = (a, l) => a.every(e => e <= l)
+
+//EX 11+
+//Write a small function that returns the values of an array that are not odd.
+//All values in the array will be integers. Return the good values in the order they are given.
+function noOdds( values ){
+let g = values.filter((item)=>{
+  if (item%2==0){
+    return true
+  } else{
+    return false
+  }
+})
+return( g)
+}
+
+noOdds([0,1,2,3])
+
 //EX
+//The first input array is the key to the correct answers to an exam, like ["a", "a", "b", "d"]. The second one contains a student's submitted answers.
+//The two arrays are not empty and are the same length. Return the score for this array of answers, giving +4 for each correct answer, 
+//-1 for each incorrect answer, and +0 for each blank answer, represented as an empty string (in C the space character is used).
+//If the score < 0, return 0.
+function checkExam(array1, array2) {
+  // good luck
+ }
+
+
+
+
+
+
+
+
+//EX Don't give me five!
 //In this kata you get the start number and the end number of a region and should return 
 //the count of all numbers except numbers with a 5 in it. 
 //The start and the end number are both inclusive!
-function dontGiveMeFive(start, end){
-let arr = [];
-for (let i=start; i<=end; i++){
-  arr.push(i)
+function dontGiveMeFive(start, end) {
+  let arr = [];
+  for (let i = start; i <= end; i++) {
+    arr.push(i)
+  }
+  arr.forEach((item) => {
+    if (start <= 5 && end > 5) {
+      console.log(arr.length - 1)
+    } else {
+
+      console.log(arr.length)
+    }
+  })
+
 }
 
-
-console.log (arr.length)
-}
-
-dontGiveMeFive(1,9)
-
-
-
-
-
-
+dontGiveMeFive(5, 17)
 
 
 
@@ -165,17 +231,17 @@ dontGiveMeFive(1,9)
 //If there are multiple elements with the same value, remove the one with a lower index. If you get an empty array/list, return an empty array/list.
 //Don't change the order of the elements that are left.
 function removeSmallest(numbers) {
-    let min = numbers[0];
-    let arr =[];
-    for(let i=0; i<numbers.length; i++) {
-      if(numbers[i]<min) min = numbers[i];
-    }
+  let min = numbers[0];
+  let arr = [];
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] < min) min = numbers[i];
+  }
 
-   numbers.filter((item)=>{
-    if (item !== min){
+  numbers.filter((item) => {
+    if (item !== min) {
       arr.push(item)
     }
-   })
+  })
   console.log(arr)
 }
 
